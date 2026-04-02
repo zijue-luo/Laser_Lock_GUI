@@ -1,5 +1,5 @@
 // Protocol: $channel,value*checksum (NMEA-style, XOR checksum).
-// Example: $1,2048*5F
+// Example: $1,2048*095
 
 int val = 0;        // initialize: value to write to DAC
 int chan = 0;       // initialize: channel to write to (1 or 2)
@@ -24,7 +24,7 @@ uint8_t xorChecksum(const char* s, int len) {
 void processLine(const char* line) {
 /* 
   Protocol: $channel,value*checksum
-  Example: $1,2048*5F
+  Example: $1,2048*095
   channel: 1 or 2
   value: 0 to 4095
   checksum: XOR of the payload
